@@ -1,0 +1,5 @@
+# Using == instead of >= to ensure control over the versions of packages we are using.  In a prod environemnt a new update could potentially introduce a bug.
+# I think it's best to use tried and tested versions.  Automatically updating could also make us more likely to suffer a supply chain attack as was seen wtih some npm packages.
+
+# Chose latest version of django
+Django==6.0.1
