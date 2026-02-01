@@ -48,11 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.middleware.LoginRequiredMiddleware', # require login by default
 ]
-
-AUTHENTICATION_BACKENDS = ["core.backends.GithubSSOBackend"]
-GITHUB_SSO_AUTHENTICATION_BACKEND = "core.backends.GithubSSOBackend"
-GITHUB_SSO_PRE_LOGIN_CALLBACK = "core.backends.pre_login_callback"
 
 ROOT_URLCONF = 'core.urls'
 

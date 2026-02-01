@@ -41,7 +41,7 @@ can avoid storing any data on users themselves, that leaves us with the image re
 <li>Our data doesn't have any complicated relations, or even relations at all.</li>
 <li>It isn't clear from the requirements whether consistency is important.</li>
 </ul>
-A good DB choice is: PostgreSQL  -- TODO although PostgreSQL is chosen to get a demo up and running I'll start with SQLite
+My DB choice is PostgreSQL  -- TODO although PostgreSQL is chosen to get a demo up and running I'll start with SQLite
 <ul>
 <li>TODO</li>
 </ul>
@@ -98,8 +98,21 @@ python manage.py runserver
 <p style="display: inline; margin: 0;">(Github SSO callback differentiates between the two!)</p>
 </div>
 
-## Retrospective thoughts: My opinions on this assignment
+Login: http://127.0.0.1:8000/admin/login/
 
+Swagger: http://127.0.0.1:8000/schema/swagger-ui/
+
+TODO: figure out how to smoothly set up data/DB
+
+TODO : Review below list for anything I actually did wind up doing like CI pipelines
+
+What I would do if I had more time/resources list:
+- Add Caching - if the data being fresh is critical I would use a distributed caching so that if one app makes a update/evicts a cache all instances will be impacted.  If the data being stale is ok however I would instead use local caching as it would be less complex and much faster as a http request would not be needed.
+- Integrate Observability Tooling - A good observability tool can make life so much easier.  Datadog has been a huge help in debugging distributed systems at my current work place more times than I can recall or count.  It has also been a wonderful tool for collecting various metrics or answering questions about our system's architecture. Being able to set up automated alerts integrated wit PagerDuty also ensures we respond to issues ASAP.
+- Setup CI Pipelines - Every time a commit is pushed we should automatically run tests on that branch to ensure a bug has not been introduced
+- Use a real DB instead of sqlLite - As mentioned above, I would use PostgresSQL for a prod app with the given information we have.  Possible ways we can scale this are read replicas and using consistent hashing to shard data across multiple DB instances.
+
+## Retrospective thoughts: My opinions on this assignment
 TODO
 
 
