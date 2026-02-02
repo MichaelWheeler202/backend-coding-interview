@@ -89,8 +89,6 @@ run build_env.bat
 
 Navigate to the /photo_management_api folder
 
-python manage.py migrate
-
 python manage.py runserver
 
 <div style="">
@@ -104,8 +102,6 @@ python manage.py runserver
 Login: http://127.0.0.1:8000/admin/login/
 
 Swagger: http://127.0.0.1:8000/schema/swagger-ui/
-
-Now use the /photo_api/photos/bulk_import/ endpoint to upload the photos.csv file
 
 TODO : Review below list for anything I actually did wind up doing like CI pipelines
 
