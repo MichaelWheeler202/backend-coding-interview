@@ -51,7 +51,7 @@ I am familiar with and does an effective job at documentation.
 
 Additional Tools: 
 <ul>
-<li>Unit Testing: TODO</li>
+<li>Unit Testing: TODO </li>
 <li>Integration Testing: TODO</li>
 <li>Security Analysis: TODO</li>
 </ul>
@@ -89,7 +89,10 @@ run build_env.bat
 
 Navigate to the /photo_management_api folder
 
+python manage.py migrate
+
 python manage.py runserver
+
 <div style="">
 <p style="display: inline; margin: 0;">Make sure you use </p>
 <p style="display: inline; margin: 0; color:green; font-weight: 1000"> 127.0.0.1:8000 </p> 
@@ -102,7 +105,7 @@ Login: http://127.0.0.1:8000/admin/login/
 
 Swagger: http://127.0.0.1:8000/schema/swagger-ui/
 
-TODO: figure out how to smoothly set up data/DB
+Now use the /photo_api/photos/bulk_import/ endpoint to upload the photos.csv file
 
 TODO : Review below list for anything I actually did wind up doing like CI pipelines
 

@@ -1,6 +1,7 @@
 from django.urls import path
 
 from .views import PhotoView, PhotographerView
+from .views.bulkPhotoImportView import BulkPhotoImportView
 
 urlpatterns = [
     path('photos/', PhotoView.as_view(http_method_names=['post']), name='photo'),
@@ -8,4 +9,6 @@ urlpatterns = [
 
     path('photographers/', PhotographerView.as_view(http_method_names=['post']), name='photographer'),
     path('photographers/<int:photographerId>/', PhotographerView.as_view(http_method_names=['get', 'delete']), name='photographer'),
+
+    path('photos/bulk_import/', BulkPhotoImportView.as_view(), name='bulk_photo_import'),
 ]
