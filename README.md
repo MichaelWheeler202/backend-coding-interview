@@ -43,18 +43,24 @@ can avoid storing any data on users themselves, that leaves us with the image re
 </ul>
 My DB choice is PostgreSQL  -- TODO although PostgreSQL is chosen to get a demo up and running I'll start with SQLite
 <ul>
-<li>TODO</li>
+<li>Tables hold structure data</li>
+<li>Foreign keys can be used to relate photographers to photos instead of having redundant photographer data</li>
+<li>ACID compliant</li>
 </ul>
 
 Documentation: Similar to my experience with java it looks like open api is an option here.  I will go with that as it's what
 I am familiar with and does an effective job at documentation.
 
-Additional Tools: 
-<ul>
-<li>Unit Testing: TODO </li>
-<li>Integration Testing: TODO</li>
-<li>Security Analysis: TODO</li>
-</ul>
+Testing - Used built in testing framework
+
+
+What I would do if I had more time/resources list:
+- Add Caching - if the data being fresh is critical I would use a distributed caching so that if one app makes a update/evicts a cache all instances will be impacted.  If the data being stale is ok however I would instead use local caching as it would be less complex and much faster as a http request would not be needed.
+- Integrate Observability Tooling - A good observability tool can make life so much easier.  Datadog has been a huge help in debugging distributed systems at my current work place more times than I can recall or count.  It has also been a wonderful tool for collecting various metrics or answering questions about our system's architecture. Being able to set up automated alerts integrated wit PagerDuty also ensures we respond to issues ASAP.
+- Setup CI Pipelines - Every time a commit is pushed we should automatically run tests on that branch to ensure a bug has not been introduced
+- Use a real DB instead of sqlLite - As mentioned above, I would use PostgresSQL for a prod app with the given information we have.  Possible ways we can scale this are read replicas and using consistent hashing to shard data across multiple DB instances.
+- Index DB columns - Depending on the searches we would expect to be common indexes can vastly speed up finding that data at the cost of maintaining an index.
+- Security - Scan with pip-audit for vulnerable dependencies, this would be a good part of the CICD pipeline
 </details>
 
 ## Project Description
@@ -103,15 +109,19 @@ Login: http://127.0.0.1:8000/admin/login/
 
 Swagger: http://127.0.0.1:8000/schema/swagger-ui/
 
-TODO : Review below list for anything I actually did wind up doing like CI pipelines
-
-What I would do if I had more time/resources list:
-- Add Caching - if the data being fresh is critical I would use a distributed caching so that if one app makes a update/evicts a cache all instances will be impacted.  If the data being stale is ok however I would instead use local caching as it would be less complex and much faster as a http request would not be needed.
-- Integrate Observability Tooling - A good observability tool can make life so much easier.  Datadog has been a huge help in debugging distributed systems at my current work place more times than I can recall or count.  It has also been a wonderful tool for collecting various metrics or answering questions about our system's architecture. Being able to set up automated alerts integrated wit PagerDuty also ensures we respond to issues ASAP.
-- Setup CI Pipelines - Every time a commit is pushed we should automatically run tests on that branch to ensure a bug has not been introduced
-- Use a real DB instead of sqlLite - As mentioned above, I would use PostgresSQL for a prod app with the given information we have.  Possible ways we can scale this are read replicas and using consistent hashing to shard data across multiple DB instances.
-
 ## Retrospective thoughts: My opinions on this assignment
-TODO
+This took a lot of time, far more than 6 hours, however that is my fault as I choose Django instead of Spring Boot, 
+which I am much more familiar with.  Since I'm already employed I figured I would use this as a learning opportunity to see how 
+my skills would translate over to developing a python API.  Criticism and feedback is greatly appreciated.
 
+Upon describing the criteria assignment to a friend of mine who is also a backend engineer 
+he mentioned that this assignment was larger than he was willing to do. I think this assignment could add a bias
+against engineers that have more out of work commitments than myself, such as he had with two young children.
 
+There are two ideas I have that I think could help this assignment be more accessible to a wider range of candidates.
+
+The first is breaking down the assignment into smaller separate parts.  The first could be the raw API functionality.
+The second authentication and authorization.  The third could be developing a test suite for this or another API.
+
+The second idea (assuming this can be assigned any day of the week)  is extending the time frame to 5 business days to
+give every candidate the weekend to have some time to work on it.
