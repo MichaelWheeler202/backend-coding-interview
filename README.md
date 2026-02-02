@@ -15,7 +15,7 @@
 
 <li>Implement user authentication and authorization
     <ul>
-    <li>I'm going to use Github SSO for this approach.  In general I'm a fan of SSO as it reduces our need to handle sensitive information like passwords.  If I was to allow account creation with usernames and passwords I'd want to make sure we only stored a salted hash and had two step verification for emails to ensure the user owns them.</li>
+    <li>I'm going to use Github SSO for this approach.  In general I'm a fan of SSO as it reduces our need to handle sensitive information like passwords.  I used github specifically because I know you guys reviewing this have github accounts already.  For a true prod app meant for everyday people google SSO may be better.  If we had to handle account creation ourselves I'd want to make sure we only stored a salted hash of the password and had two step verification for emails to ensure the user owns them.  If we were storing sensitive data such as healthcare related images, I would also want to add two-factor authentication for logging in.)</li>
     </ul>
 </li>
 <li>Provide API endpoints for managing and accessing photos</li>
@@ -111,10 +111,12 @@ Login: http://127.0.0.1:8000/admin/login/
 Swagger: http://127.0.0.1:8000/schema/swagger-ui/
 
 ## Retrospective thoughts: My opinions on this assignment
+### Overall Impression
 As someone who has not only written code, but interviewed coding candidates, I wanted to add my thoughts on this assessment as well.
 Overall I'm a big fan of practical assessments like this. I believe they do a better job of selecting for candidates that
 can contribute to projects in comparison to leetcode assessments (Although I do personally like solving leetcode questions).
 
+### Time 
 Upon describing the criteria assignment to a friend of mine who is also a backend engineer 
 he mentioned that this assignment was larger than he was willing to do. I think this assignment could add a bias
 against engineers that have more out of work commitments than myself, such as he had with two young children.
@@ -131,3 +133,7 @@ give every candidate the weekend to have some time to work on it.
 As for my own time commitment, it was probably close to 16 hours, however that is completely my fault as I choose Django instead of Spring Boot, 
 a framework I am much more familiar with.  Since I'm already employed I figured I would use this as a learning opportunity to see how 
 my skills would translate over to developing a python API.  Criticism and feedback on my choices, style, and errors is greatly appreciated.
+
+### Cheating Vulnerability
+I can see other candidates submissions when checking the main github.  This can lead to whoever submits last having the strongest submission
+by adopting the taking ideas from other candidates submissions.
