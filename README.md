@@ -61,6 +61,7 @@ What I would do if I had more time/resources list:
 - Use a real DB instead of sqlLite - As mentioned above, I would use PostgresSQL for a prod app with the given information we have.  Possible ways we can scale this are read replicas and using consistent hashing to shard data across multiple DB instances.
 - Index DB columns - Depending on the searches we would expect to be common indexes can vastly speed up finding that data at the cost of maintaining an index.
 - Security - Scan with pip-audit for vulnerable dependencies, this would be a good part of the CICD pipeline
+- Containerization - Containerize the app to make deployment consistent
 </details>
 
 ## Project Description
