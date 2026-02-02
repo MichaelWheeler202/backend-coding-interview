@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.views import APIView
 from drf_spectacular.utils import extend_schema
@@ -64,23 +63,21 @@ class PhotoView(APIView):
     )
     def post(self, request):
         """
-        Create a new Photographer.
-
-        Expects JSON body matching PhotographerSerializer (fields: id, photographer, photographer_url).
+        Create a new Photo.
         """
         logger.info(f"Received request to create photo {request.data}")
         photo = PhotoSerializer(data=request.data)
         if not photo.is_valid() :
-            logger.info(f"Photographer creation validation failed: {photo.errors}")
+            logger.info(f"Photo creation validation failed: {photo.errors}")
             return Response(photo.errors, status=status.HTTP_400_BAD_REQUEST)
 
         try:
             Photo.objects.create(**photo.validated_data)
         except IntegrityError as e:
-            logger.error(f"IntegrityError when creating photographer: {e}")
-            return Response({"error": "Photographer with this ID already exists or data violates constraints."}, status=status.HTTP_400_BAD_REQUEST)
+            logger.error(f"IntegrityError when creating photo: {e}")
+            return Response({"error": "Photo with this ID already exists or data violates constraints."}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            logger.error(f"Unexpected error when creating photographer: {e}")
+            logger.error(f"Unexpected error when creating photo: {e}")
             return Response({"error": "Internal server error."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response(status=status.HTTP_201_CREATED)

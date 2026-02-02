@@ -111,18 +111,23 @@ Login: http://127.0.0.1:8000/admin/login/
 Swagger: http://127.0.0.1:8000/schema/swagger-ui/
 
 ## Retrospective thoughts: My opinions on this assignment
-This took a lot of time, far more than 6 hours, however that is my fault as I choose Django instead of Spring Boot, 
-which I am much more familiar with.  Since I'm already employed I figured I would use this as a learning opportunity to see how 
-my skills would translate over to developing a python API.  Criticism and feedback is greatly appreciated.
+As someone who has not only written code, but interviewed coding candidates, I wanted to add my thoughts on this assessment as well.
+Overall I'm a big fan of practical assessments like this. I believe they do a better job of selecting for candidates that
+can contribute to projects in comparison to leetcode assessments (Although I do personally like solving leetcode questions).
 
 Upon describing the criteria assignment to a friend of mine who is also a backend engineer 
 he mentioned that this assignment was larger than he was willing to do. I think this assignment could add a bias
 against engineers that have more out of work commitments than myself, such as he had with two young children.
 
-There are two ideas I have that I think could help this assignment be more accessible to a wider range of candidates.
+There are two ideas I have that I think could help this assignment be more accessible to a wider range of candidates 
+where a 6 hour commitment sounds too high.
 
 The first is breaking down the assignment into smaller separate parts.  The first could be the raw API functionality.
 The second authentication and authorization.  The third could be developing a test suite for this or another API.
 
 The second idea (assuming this can be assigned any day of the week)  is extending the time frame to 5 business days to
 give every candidate the weekend to have some time to work on it.
+
+As for my own time commitment, it was probably close to 16 hours, however that is completely my fault as I choose Django instead of Spring Boot, 
+a framework I am much more familiar with.  Since I'm already employed I figured I would use this as a learning opportunity to see how 
+my skills would translate over to developing a python API.  Criticism and feedback on my choices, style, and errors is greatly appreciated.

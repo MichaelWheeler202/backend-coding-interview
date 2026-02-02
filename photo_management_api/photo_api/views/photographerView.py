@@ -62,7 +62,6 @@ class PhotographerView(APIView):
     def post(self, request):
         """
         Create a new Photographer.
-        Expects JSON body matching PhotographerSerializer (fields: id, photographer, photographer_url).
         """
         logger.info(f"Received request to create photographer {request.data}")
         photographer = PhotographerSerializer(data=request.data)
